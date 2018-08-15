@@ -2,12 +2,19 @@
   "name": "new-react-app",
   "version": "1.0.0",
   "description": "Build a react app from scratch",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
-    "start": "webpack-dev-server --mode=development --open",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "bundle": "webpack --mode development",
+    "serve": "electron .",
+    "start": "npm run-script bundle & npm run-script serve",
+    "rebuild": "electron-packager ./ --out=./builds --platform=darwin --overwrite"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Thomascountz/react-electron-webpack"
   },
   "author": "Thomas Countz",
+  "email": "tcountz@8thlight.com",
   "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -16,6 +23,9 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^1.0.0",
+    "electron": "^2.0.7",
+    "electron-reload": "^1.2.5",
+    "file-loader": "^1.1.11",
     "style-loader": "^0.22.1",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.5"

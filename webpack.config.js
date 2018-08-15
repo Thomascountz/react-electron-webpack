@@ -2,7 +2,9 @@ const path = require("path");
 const webpack = require("webpack");
 
 module.exports = {
+  watch: true,
   entry: "./src/index.js",
+  target: "electron-renderer",
   mode: "development",
   module: {
     rules: [
@@ -14,6 +16,18 @@ module.exports = {
       {
         test: /\.css$/,
         use: ["style-loader", "css-loader"]
+      },
+      {
+        test: /\.(png|jpg|gif|svg)$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "[name]-[hash:8].[ext]",
+              publicPath: "../dist"
+            }
+          }
+        ]
       }
     ]
   },
@@ -22,12 +36,6 @@ module.exports = {
     path: path.resolve(__dirname, "dist/"),
     publicPath: "/dist/",
     filename: "bundle.js"
-  },
-  devServer: {
-    contentBase: path.join(__dirname, "public/"),
-    port: 3000,
-    publicPath: "http://localhost:3000/dist/",
-    hotOnly: true
   },
   plugins: [new webpack.HotModuleReplacementPlugin()]
 };

@@ -29,6 +29,12 @@ npm run-script rebuild
 
 Runs `electron-packager`, for `darwin` only, and outputs/**overwrites** results into `/builds`
 
+```
+npm test  # - or - #  jest --watchAll
+```
+
+Runs Jests and watches for file changes before automatically rerunning specs
+
 ## Configuration Choices
 Running `npm start` in development will create webpack output in `/dist` and, using `HotModuleReplacementPlugin`, Webpack will create hotswap `.json` files in the `/dist` directory for every file change/save. This directory can quickly become bloated, which is why it's `.gitignore`d. The alternative is to setup `webpack-dev-server`, which is included in `package.json`. `electron-reload` is used to patch this hotswaps live when a file is changed.
 

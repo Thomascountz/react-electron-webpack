@@ -8,7 +8,7 @@
     "serve": "electron .",
     "start": "npm run-script bundle & npm run-script serve",
     "rebuild": "electron-packager ./ --out=./builds --platform=darwin --overwrite",
-    "test": "jest --watch"
+    "test": "jest --watchAll"
   },
   "repository": {
     "type": "git",

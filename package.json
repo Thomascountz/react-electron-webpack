@@ -7,7 +7,8 @@
     "bundle": "webpack --mode development",
     "serve": "electron .",
     "start": "npm run-script bundle & npm run-script serve",
-    "rebuild": "electron-packager ./ --out=./builds --platform=darwin --overwrite"
+    "rebuild": "electron-packager ./ --out=./builds --platform=darwin --overwrite",
+    "test": "jest --watch"
   },
   "repository": {
     "type": "git",
@@ -19,21 +20,33 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
+    "babel-jest": "^23.4.2",
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^1.0.0",
     "electron": "^2.0.7",
     "electron-reload": "^1.2.5",
+    "enzyme": "^3.4.3",
+    "enzyme-adapter-react-16": "^1.2.0",
     "file-loader": "^1.1.11",
+    "jest": "^23.5.0",
+    "prop-types": "^15.6.2",
+    "react-test-renderer": "^16.4.2",
     "style-loader": "^0.22.1",
+    "webpack": "^4.16.5",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.5"
   },
   "dependencies": {
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
-    "react-hot-loader": "^4.3.4",
-    "webpack": "^4.16.5"
+    "react-hot-loader": "^4.3.4"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
+    }
   }
 }

@@ -7,6 +7,8 @@ A boilerplate for a React, Electron, Webpack application
 - Babel - ES6/JSX transformation
 - Webpack - Asset manager/bundler
 - npm - Javascript package manager
+- Jest - Javascript test runner written for React
+- Enzyme - Javascript testing utilities written for React
 
 ## Installation
 - Clone this repo: `https://github.com/Thomascountz/react-electron-webpack.git`
@@ -33,6 +35,8 @@ Running `npm start` in development will create webpack output in `/dist` and, us
 ## File Structure
 ```
 .
+├── README.md                                 // This document  
+├── __mocks__                                 // Configured mocks used by Jest (https://jestjs.io/docs/en/webpack)  
 ├── builds                                    // Output of electron-packager
 ├── dist                                      // Output of Webpack; served by Electron 
 ├── main.js                                   // Entry point for Electron
@@ -49,6 +53,7 @@ Running `npm start` in development will create webpack output in `/dist` and, us
 │   ├── components                            // Components
 │   │   ├── HelloWorld                        // All components share a common structure
 │   │   │   ├── index.jsx                     // .jsx holds the React component
+│   │   │   ├── index.test.jsx                // .test.jsx holds the Enzyme/Jest tests
 │   │   │   └── styles.css                    // .css holds the styling for that component
 │   │   └── Logo
 │   │       ├── index.jsx
